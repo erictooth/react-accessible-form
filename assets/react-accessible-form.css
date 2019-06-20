@@ -1,0 +1,18 @@
+.form__group--aligned {
+    display: table-row;
+}
+.form__group__section {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.form__label,
+.form__control,
+.form__text {
+    box-sizing: border-box;
+    display: block;
+}
+
+.form--aligned {
+    display: table;
+}
