@@ -67,7 +67,9 @@ stories.add("custom controls", () => {
             <Form.Group>
                 <Form.Label>Visibility</Form.Label>
                 <Form.Control
-                    as={Select}
+                    as={({ /*eslint-disable-line no-unused-vars*/ className, ...props }) => (
+                        <Select {...props} />
+                    )}
                     options={[
                         { value: "private", label: "Private" },
                         { value: "public", label: "Public" },
