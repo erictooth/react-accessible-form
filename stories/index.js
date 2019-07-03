@@ -8,7 +8,7 @@ import Form from "../src/index.js";
 import Select from "react-select";
 import { Switch } from "pretty-checkbox-react";
 
-const stories = storiesOf("Form");
+const stories = storiesOf("Form", /*eslint-disable-line no-undef*/ module);
 stories.addDecorator(withKnobs);
 
 const layoutKnob = () => select("layout", ["aligned", "stacked"], "aligned");
