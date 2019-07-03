@@ -1,6 +1,6 @@
 {
     "name": "react-accessible-form",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "React Accessible Form handles makes layout and accessibility easy when writing forms.",
     "author": "Eric Mantooth",
     "license": "MIT",
@@ -39,11 +39,19 @@
             "@erictooth/eslint-config/flowtype"
         ]
     },
+    "eslintIgnore": [
+        "src/**/__tests__"
+    ],
     "prettier": "@erictooth/prettier-config",
     "@pika/pack": {
         "pipeline": [
             [
-                "@pika/plugin-standard-pkg"
+                "@pika/plugin-standard-pkg",
+                {
+                    "exclude": [
+                        "__tests__/**/*"
+                    ]
+                }
             ],
             [
                 "@pika/plugin-build-web"
