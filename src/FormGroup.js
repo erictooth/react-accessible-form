@@ -11,6 +11,7 @@ type Props = {
     className?: string,
     disabled?: boolean,
     layout?: Layout,
+    id?: string,
     required?: boolean,
 };
 
@@ -33,6 +34,7 @@ export const FormGroup = React.forwardRef<Props, HTMLElement>((props: Props, ref
         children,
         className,
         disabled = false,
+        id,
         layout: propLayout,
         required = false,
         ...rest
@@ -42,10 +44,10 @@ export const FormGroup = React.forwardRef<Props, HTMLElement>((props: Props, ref
     const formGroupContext = React.useMemo(
         () => ({
             disabled: formDisabled || disabled,
-            id: uuidv4(),
+            id: id || uuidv4(),
             required,
         }),
-        [disabled, formDisabled, required]
+        [disabled, formDisabled, id, required]
     );
     //$FlowFixMe
     return React.createElement(
