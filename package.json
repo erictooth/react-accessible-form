@@ -2,6 +2,12 @@
     "name": "react-accessible-form",
     "version": "0.0.1",
     "description": "React Accessible Form handles makes layout and accessibility easy when writing forms.",
+    "author": "Eric Mantooth",
+    "license": "MIT",
+    "keywords": [
+        "react",
+        "form"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/erictooth/react-accessible-form.git"
@@ -10,11 +16,6 @@
     "bugs": {
         "url": "https://github.com/erictooth/react-accessible-form/issues"
     },
-    "keywords": [
-        "react",
-        "form"
-    ],
-    "sideEffects": false,
     "scripts": {
         "build": "npm run lint && npm run build:flow && npm run build:js && npm run copy:flow",
         "build:flow": "flow check && flow-coverage-report -i src/*.js -t html",
@@ -23,35 +24,21 @@
         "lint": "eslint src/",
         "storybook": "start-storybook"
     },
-    "author": "Eric Mantooth",
-    "license": "MIT",
-    "devDependencies": {
-        "@babel/preset-flow": "^7.0.0",
-        "@babel/preset-react": "^7.0.0",
-        "@erictooth/eslint-config": "^1.0.1",
-        "@erictooth/prettier-config": "^2.0.0",
-        "@pika/pack": "^0.3.7",
-        "@pika/plugin-build-umd": "^0.4.0",
-        "@pika/plugin-build-web": "^0.4.0",
-        "@pika/plugin-copy-assets": "^0.4.0",
-        "@pika/plugin-standard-pkg": "^0.4.0",
-        "@storybook/react": "^5.0.11",
-        "babel-loader": "^8.0.6",
-        "eslint": "^5.16.0",
-        "flow-bin": "^0.98.1",
-        "flow-copy-source": "^2.0.6",
-        "flow-coverage-report": "^0.6.1",
-        "prettier": "^1.17.1",
-        "react": "^16.8.0",
-        "react-dom": "^16.8.0"
-    },
-    "peerDependencies": {
-        "react": "^16.8.0"
-    },
     "dependencies": {
         "classnames": "^2.2.6",
         "uuid": "^3.3.2"
     },
+    "peerDependencies": {
+        "react": "^16.8.0"
+    },
+    "eslintConfig": {
+        "extends": [
+            "@erictooth/eslint-config",
+            "@erictooth/eslint-config/react",
+            "@erictooth/eslint-config/flowtype"
+        ]
+    },
+    "prettier": "@erictooth/prettier-config",
     "@pika/pack": {
         "pipeline": [
             [
@@ -71,12 +58,30 @@
             ]
         ]
     },
-    "eslintConfig": {
-        "extends": [
-            "@erictooth/eslint-config",
-            "@erictooth/eslint-config/react",
-            "@erictooth/eslint-config/flowtype"
-        ]
-    },
-    "prettier": "@erictooth/prettier-config"
+    "devDependencies": {
+        "@babel/preset-flow": "^7.0.0",
+        "@babel/preset-react": "^7.0.0",
+        "@erictooth/eslint-config": "^1.0.1",
+        "@erictooth/prettier-config": "^2.0.0",
+        "@pika/pack": "^0.4.0",
+        "@pika/plugin-build-umd": "^0.4.0",
+        "@pika/plugin-build-web": "^0.4.0",
+        "@pika/plugin-copy-assets": "^0.4.0",
+        "@pika/plugin-standard-pkg": "^0.4.0",
+        "@storybook/addon-a11y": "^5.1.9",
+        "@storybook/addon-knobs": "^5.1.9",
+        "@storybook/addon-storysource": "^5.1.9",
+        "@storybook/react": "^5.1.9",
+        "babel-loader": "^8.0.6",
+        "eslint": "^6.0.1",
+        "flow-bin": "^0.102.0",
+        "flow-copy-source": "^2.0.7",
+        "flow-coverage-report": "^0.6.1",
+        "prettier": "^1.18.2",
+        "pretty-checkbox": "^3.0.3",
+        "pretty-checkbox-react": "^1.1.0",
+        "react": "^16.8.0",
+        "react-dom": "^16.8.0",
+        "react-select": "^3.0.4"
+    }
 }

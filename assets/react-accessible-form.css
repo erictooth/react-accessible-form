@@ -9,7 +9,6 @@
 .form__label,
 .form__control,
 .form__text {
-    box-sizing: border-box;
     display: block;
 }
 
