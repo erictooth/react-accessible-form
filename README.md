@@ -4,7 +4,15 @@ React Accessible Form handles makes layout and accessibility easy when writing f
 
 ## Example
 
-Before
+```jsx
+<Form.Group layout="aligned" required>
+    <Form.Label>Email Addresses</Form.Label>
+    <Form.Control type="email" />
+    <small>Separated by semicolon (;)</small>
+</Form.Group>
+```
+
+Without react-accessible-form:
 
 ```jsx
 <div className="form-group form-group--aligned">
@@ -15,66 +23,92 @@ Before
     </div>
     <div className="form-group-section">
         <input type="email" class="form-control" id="email_field" required />
-        <span className="form-text">Separated by semicolon (;)</span>
+        <small>Separated by semicolon (;)</small>
     </div>
 </div>
 ```
 
-After
-
-```jsx
-<Form.Group layout="aligned" required>
-    <Form.Label>Email Addresses</Form.Label>
-    <Form.Control type="email" />
-    <Form.Text>Separated by semicolon (;)</Form.Text>
-</Form.Group>
-```
-
 ## Features
 
--   Generates a unique `id` for the label’s `htmlFor` and input’s `id` props and links them
--   Applies `classNames` in a predictable way that reduces boilerplate and provides maximum flexibility
--   Allows usage of any custom inputs with `render` prop on `Form.Control`
+-   Optionally generates a unique `id` for the label’s `htmlFor` and input’s `id` props and links them
+-   Applies BEM-formatted `classNames` to all of the components to make theming straightforward
+-   Allows usage of any custom controls with `as` prop on `Form.Control`
 -   Zero-overhead integration with form state libraries like [Formik](https://github.com/jaredpalmer/formik) and [React-Final-Form](https://github.com/final-form/react-final-form)
--   Optional tiny set of base styles that help with aligned form layouts
+-   Optional set of base styles that help with aligned form layouts
 
 ## `Form` Props
 
-### `layout?: "stacked" | "aligned"`
+### as
+Type: `React.ElementType`     
+Required: `false`   
+Default: `"form"`
+
+Changes the underlying element of the `Form` component.
+
+### disabled
+Type: `boolean`     
+Required: `false`   
+Default: `false`
+
+Sets the disabled prop on all children `Form.Control` components.
+
+### layout
+Type: `"stacked" | "aligned"`     
+Required: `false`   
+Default: `"stacked"`
 
 Propagates down to all of the children `Form.Group` components. `stacked` is the default, which is to set all of the children to `display: block`. `aligned` splits all of `Form.Group`’s children into two groups: "label", and "rest" so that all of the form’s labels will align to the same width.
 
 ## `Form.Group` Props
 
-### `required?: boolean`
+### id
+Type: `string`     
+Required: `false`   
+Default: `UUIDv4()`
+
+The `id` to set on the `Form.Control` and associated `htmlFor` to set on the `Form.Label`
+
+### required
+Type: `boolean`     
+Required: `false`   
+Default: `false`
 
 Set classNames on the label to indicate a required field, and set the `required` prop on the `Form.Control`
 
-### `disabled?: boolean`
+### disabled
+Type: `boolean`     
+Required: `false`   
+Default: `false"`
 
 Set classNames on the label to indicate a disabled field, and set the `disabled` prop on the `Form.Control`
 
-## Custom Inputs
+## `Form.Control` Props
 
-The default behavior of `Form.Control` is to configure an `input` element and render it. If you want to use something else, like a `select`, `textarea`, or a third-party library component, you can render your own component without losing the benefits of React Accessible Form:
+### as
+Type: `React.ElementType`   
+Required: `false`   
+Default: `"input"`  
+
+#### Examples
+
+##### Built-in element
 
 ```jsx
-{
-    /* If the controls map to standard HTML attribute names, you can spread the props directly */
-}
-<Form.Control render={props => <textarea {...props} />} />;
+<Form.Control as="select">
+    <option value="AL">Alabama</option>
+    <option value="AK">Alaska</option>
+    <option value="AZ">Arizona</option>
+</Form.Control>
+```
 
-{
-    /* Otherwise, you can destructure the props and apply however is necessary */
-}
-<Form.Control
-    render={({ className, disabled, id, required }) => (
-        <SomeCustomInputComponent
-            className={className}
-            isDisabled={disabled}
-            htmlId={id}
-            isRequired={required}
-        />
-    )}
-/>;
+##### Custom element
+
+```jsx
+<Form.Control as={ReactSelect} options={[{value: "AL", label: "Alabama"}]} />
+```
+
+##### Overriding props
+
+```jsx
+<Form.Control as={({className, ...props}) => <ReactSelect className="custom" {...props} />} />
 ```
