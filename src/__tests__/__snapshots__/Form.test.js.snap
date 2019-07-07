@@ -13,7 +13,7 @@ exports[`Form renders and matches snapshot 1`] = `
       >
         <label
           class="form__label"
-          for="f47cc1f4-02e0-449b-93b7-7c1988a98aab"
+          for="1"
         >
           First Name
         </label>
@@ -23,7 +23,7 @@ exports[`Form renders and matches snapshot 1`] = `
       >
         <input
           class="form__control"
-          id="f47cc1f4-02e0-449b-93b7-7c1988a98aab"
+          id="1"
         />
       </div>
     </div>
@@ -35,7 +35,7 @@ exports[`Form renders and matches snapshot 1`] = `
       >
         <label
           class="form__label"
-          for="803c8d77-695f-4bec-880e-482917a24729"
+          for="2"
         >
           Last Name
         </label>
@@ -45,7 +45,7 @@ exports[`Form renders and matches snapshot 1`] = `
       >
         <input
           class="form__control"
-          id="803c8d77-695f-4bec-880e-482917a24729"
+          id="2"
         />
       </div>
     </div>
@@ -57,7 +57,7 @@ exports[`Form renders and matches snapshot 1`] = `
       >
         <label
           class="form__label"
-          for="f246e9d6-2240-447c-90e4-4676d2f2ce06"
+          for="3"
         >
           Age
         </label>
@@ -67,7 +67,7 @@ exports[`Form renders and matches snapshot 1`] = `
       >
         <input
           class="form__control"
-          id="f246e9d6-2240-447c-90e4-4676d2f2ce06"
+          id="3"
           min="0"
           type="number"
         />
@@ -81,7 +81,7 @@ exports[`Form renders and matches snapshot 1`] = `
       >
         <label
           class="form__label"
-          for="38a2d156-455c-45d8-bf4e-75939a95eba4"
+          for="4"
         >
           Bio
         </label>
@@ -91,7 +91,7 @@ exports[`Form renders and matches snapshot 1`] = `
       >
         <textarea
           class="form__control"
-          id="38a2d156-455c-45d8-bf4e-75939a95eba4"
+          id="4"
         />
       </div>
     </div>
@@ -103,7 +103,7 @@ exports[`Form renders and matches snapshot 1`] = `
       >
         <label
           class="form__label"
-          for="0e6f1df5-4f3b-47f1-a2e7-fe58a95d78ff"
+          for="5"
         >
           Email
         </label>
@@ -113,7 +113,7 @@ exports[`Form renders and matches snapshot 1`] = `
       >
         <input
           class="form__control"
-          id="0e6f1df5-4f3b-47f1-a2e7-fe58a95d78ff"
+          id="5"
           type="email"
         />
         <small>
@@ -129,7 +129,7 @@ exports[`Form renders and matches snapshot 1`] = `
       >
         <input
           class="form__control"
-          id="c5098a49-39e5-4b50-970c-acb907d60aa5"
+          id="6"
           type="checkbox"
         />
       </div>
@@ -138,7 +138,7 @@ exports[`Form renders and matches snapshot 1`] = `
       >
         <label
           class="form__label"
-          for="c5098a49-39e5-4b50-970c-acb907d60aa5"
+          for="6"
         >
           Receive Newsletter
         </label>
@@ -152,7 +152,7 @@ exports[`Form renders and matches snapshot 1`] = `
       >
         <label
           class="form__label"
-          for="3285ab46-1487-48e3-a244-302c08fef7d2"
+          for="7"
         >
           Newsletter Frequency
         </label>
@@ -162,7 +162,7 @@ exports[`Form renders and matches snapshot 1`] = `
       >
         <select
           class="form__control"
-          id="3285ab46-1487-48e3-a244-302c08fef7d2"
+          id="7"
         >
           <option>
             Daily
@@ -189,7 +189,7 @@ exports[`Form renders and matches snapshot 1`] = `
       >
         <button
           class="form__control"
-          id="20c69a4c-3d60-40ca-8de3-7e5915f9043a"
+          id="8"
         >
           Submit
         </button>
