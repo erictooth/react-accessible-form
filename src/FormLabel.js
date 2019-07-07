@@ -2,7 +2,7 @@
 import * as React from "react";
 import classNames from "classnames";
 
-import { FormGroupContext } from "./FormGroup.js";
+import { FormGroupContext } from "./FormGroupContext.js";
 
 type Props = {
     as?: React.ElementType,

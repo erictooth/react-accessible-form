@@ -4,6 +4,7 @@ import classNames from "classnames";
 import uuidv4 from "uuid/v4";
 
 import { FormContext, type Layout } from "./Form.js";
+import { FormGroupContext } from "./FormGroupContext.js";
 
 type Props = {
     as?: React.ElementType,
@@ -64,21 +65,3 @@ export const FormGroup = React.forwardRef<Props, HTMLElement>((props: Props, ref
 });
 
 FormGroup.displayName = "Form.Group";
-
-export type FormGroupContextValue = {|
-    id: string,
-    disabled: boolean,
-    required: boolean,
-|};
-
-export const FormGroupContext = React.createContext<?FormGroupContextValue>();
-
-export const useGroupContext = () => {
-    const groupContext = React.useContext(FormGroupContext);
-
-    if (!groupContext) {
-        throw new Error("useGroupContext must be used inside of a FormGroup");
-    }
-
-    return groupContext;
-};
