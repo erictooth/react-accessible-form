@@ -78,7 +78,7 @@ Set classNames on the label to indicate a required field, and set the `required`
 ### disabled
 Type: `boolean`
 Required: `false`
-Default: `false"`
+Default: `false`
 
 Set classNames on the label to indicate a disabled field, and set the `disabled` prop on the `Form.Control`
 
