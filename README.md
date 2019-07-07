@@ -1,4 +1,4 @@
-# React Accessible Form &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/erictooth/react-accessible-form/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/react-accessible-form.svg?style=flat-square)](https://www.npmjs.com/package/react-accessible-form) ![test coverage](https://img.shields.io/badge/coverage-84%25-green.svg?style=flat-square) ![flow coverage](https://img.shields.io/badge/flow--coverage-100%25-brightgreen.svg?style=flat-square) ![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
+# React Accessible Form &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/erictooth/react-accessible-form/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/react-accessible-form.svg?style=flat-square)](https://www.npmjs.com/package/react-accessible-form) ![test coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg?style=flat-square) ![flow coverage](https://img.shields.io/badge/flow--coverage-100%25-brightgreen.svg?style=flat-square) ![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)
 
 React Accessible Form handles makes layout and accessibility easy when writing forms.
 
@@ -39,22 +39,22 @@ Without react-accessible-form:
 ## `Form` Props
 
 ### as
-Type: `React.ElementType`     
-Required: `false`   
+Type: `React.ElementType`
+Required: `false`
 Default: `"form"`
 
 Changes the underlying element of the `Form` component.
 
 ### disabled
-Type: `boolean`     
-Required: `false`   
+Type: `boolean`
+Required: `false`
 Default: `false`
 
 Sets the disabled prop on all children `Form.Control` components.
 
 ### layout
-Type: `"stacked" | "aligned"`     
-Required: `false`   
+Type: `"stacked" | "aligned"`
+Required: `false`
 Default: `"stacked"`
 
 Propagates down to all of the children `Form.Group` components. `stacked` is the default, which is to set all of the children to `display: block`. `aligned` splits all of `Form.Group`’s children into two groups: "label", and "rest" so that all of the form’s labels will align to the same width.
@@ -62,22 +62,22 @@ Propagates down to all of the children `Form.Group` components. `stacked` is the
 ## `Form.Group` Props
 
 ### id
-Type: `string`     
-Required: `false`   
+Type: `string`
+Required: `false`
 Default: `UUIDv4()`
 
 The `id` to set on the `Form.Control` and associated `htmlFor` to set on the `Form.Label`
 
 ### required
-Type: `boolean`     
-Required: `false`   
+Type: `boolean`
+Required: `false`
 Default: `false`
 
 Set classNames on the label to indicate a required field, and set the `required` prop on the `Form.Control`
 
 ### disabled
-Type: `boolean`     
-Required: `false`   
+Type: `boolean`
+Required: `false`
 Default: `false"`
 
 Set classNames on the label to indicate a disabled field, and set the `disabled` prop on the `Form.Control`
@@ -85,9 +85,9 @@ Set classNames on the label to indicate a disabled field, and set the `disabled`
 ## `Form.Control` Props
 
 ### as
-Type: `React.ElementType`   
-Required: `false`   
-Default: `"input"`  
+Type: `React.ElementType`
+Required: `false`
+Default: `"input"`
 
 #### Examples
 

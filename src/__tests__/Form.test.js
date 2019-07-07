@@ -1,5 +1,4 @@
 import * as React from "react";
-import "jest-dom/extend-expect";
 import { render } from "@testing-library/react";
 
 import Form from "../index.js";
@@ -58,5 +57,10 @@ describe("Form", () => {
         const { container } = render(<Form layout={LAYOUT} />);
 
         expect(container.querySelector(`.form--${LAYOUT}`)).not.toBe(null);
+    });
+    it("defaults layout to stacked", () => {
+        const { container } = render(<Form />);
+
+        expect(container.querySelector(`.form--stacked`)).not.toBe(null);
     });
 });
