@@ -63,35 +63,43 @@
                 }
             ],
             [
+                "@pika/plugin-build-node"
+            ],
+            [
+                "@pika/plugin-build-types"
+            ],
+            [
                 "@pika/plugin-copy-assets"
             ]
         ]
     },
     "devDependencies": {
-        "@babel/core": "^7.4.5",
+        "@babel/core": "^7.6.4",
         "@babel/preset-env": "^7.4.5",
         "@babel/preset-flow": "^7.0.0",
         "@babel/preset-react": "^7.0.0",
         "@erictooth/eslint-config": "^1.0.1",
         "@erictooth/prettier-config": "^2.0.0",
-        "@pika/pack": "^0.4.0",
-        "@pika/plugin-build-umd": "^0.4.0",
-        "@pika/plugin-build-web": "^0.4.0",
-        "@pika/plugin-copy-assets": "^0.4.0",
-        "@pika/plugin-standard-pkg": "^0.4.0",
+        "@pika/pack": "^0.5.0",
+        "@pika/plugin-build-node": "^0.6.1",
+        "@pika/plugin-build-types": "^0.6.1",
+        "@pika/plugin-build-umd": "^0.6.1",
+        "@pika/plugin-build-web": "^0.6.1",
+        "@pika/plugin-copy-assets": "^0.6.1",
+        "@pika/plugin-standard-pkg": "^0.6.1",
         "@storybook/addon-a11y": "^5.1.9",
         "@storybook/addon-knobs": "^5.1.9",
         "@storybook/addon-storysource": "^5.1.9",
         "@storybook/react": "^5.1.9",
-        "@testing-library/react": "^8.0.4",
+        "@testing-library/react": "^9.3.0",
         "babel-jest": "^24.8.0",
         "babel-loader": "^8.0.6",
         "eslint": "^6.0.1",
-        "flow-bin": "^0.102.0",
+        "flow-bin": "^0.109.0",
         "flow-copy-source": "^2.0.7",
         "flow-coverage-report": "^0.6.1",
         "jest": "^24.8.0",
-        "jest-dom": "^3.5.0",
+        "jest-dom": "^4.0.0",
         "prettier": "^1.18.2",
         "pretty-checkbox": "^3.0.3",
         "pretty-checkbox-react": "^1.1.0",
