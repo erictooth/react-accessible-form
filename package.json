@@ -17,11 +17,13 @@
         "url": "https://github.com/erictooth/react-accessible-form/issues"
     },
     "scripts": {
-        "build": "npm run lint && npm run build:flow && npm run build:js && npm run copy:flow",
+        "prebuild": "npm-run-all --parallel lint test build:flow",
+        "build": "npm run build:pika",
         "build:flow": "flow check && flow-coverage-report -i src/*.js -t html",
-        "build:js": "pack build",
+        "build:pika": "pack build",
         "copy:flow": "flow-copy-source src pkg/dist-src",
         "lint": "eslint src/",
+        "prepublishOnly": "npm-run-all build copy:flow",
         "storybook": "start-storybook",
         "test": "jest"
     },
@@ -92,6 +94,7 @@
         "flow-coverage-report": "^0.6.1",
         "jest": "^24.8.0",
         "jest-dom": "^3.5.0",
+        "npm-run-all": "^4.1.5",
         "prettier": "^1.18.2",
         "pretty-checkbox": "^3.0.3",
         "pretty-checkbox-react": "^1.1.0",
