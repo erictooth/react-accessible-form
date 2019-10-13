@@ -19,7 +19,7 @@
     "scripts": {
         "prebuild": "npm-run-all --parallel lint test",
         "build": "npm run build:pika",
-        "build:pika": "pack build",
+        "build:pika": "pika build",
         "lint": "eslint src --ext=tsx,ts",
         "prepublishOnly": "npm-run-all build",
         "storybook": "start-storybook",
