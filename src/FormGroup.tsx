@@ -16,7 +16,7 @@ type Props = {
     required?: boolean;
 };
 
-const renderSections = (children: React.ReactNode) => {
+const renderSections = (children: React.ReactNode): React.ReactNode => {
     const childrenArr = React.Children.toArray(children);
     if (childrenArr.length === 0) {
         return null;
