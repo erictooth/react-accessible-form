@@ -3,6 +3,5 @@ node_modules
 .vscode
 flow-coverage
 dist
-package-lock.json
 pkg
 coverage
