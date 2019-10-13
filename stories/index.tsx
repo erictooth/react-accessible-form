@@ -5,10 +5,12 @@ import { withKnobs, select } from "@storybook/addon-knobs";
 
 import Form from "../src/index";
 
+//@ts-ignore
 import Select from "react-select";
+//@ts-ignore
 import { Switch } from "pretty-checkbox-react";
 
-const stories = storiesOf("Form", /*eslint-disable-line no-undef*/ module);
+const stories = storiesOf("Form", module);
 stories.addDecorator(withKnobs);
 
 const layoutKnob = () => select("layout", ["aligned", "stacked"], "aligned");
@@ -67,7 +69,7 @@ stories.add("custom controls", () => {
             <Form.Group>
                 <Form.Label>Visibility</Form.Label>
                 <Form.Control
-                    as={({ /*eslint-disable-line no-unused-vars*/ className, ...props }) => (
+                    as={({ className, ...props }) => (
                         <Select {...props} />
                     )}
                     options={[
@@ -78,7 +80,7 @@ stories.add("custom controls", () => {
             </Form.Group>
             <Form.Group layout="aligned">
                 <Form.Control
-                    as={({ /*eslint-disable-line no-unused-vars*/ className, ...props }) => (
+                    as={({ className, ...props }) => (
                         <Switch {...props} />
                     )}
                     shape="fill"
