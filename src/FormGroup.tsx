@@ -1,6 +1,6 @@
 import * as React from "react";
 import classNames from "classnames";
-import uuidv4 from "uuid/v4";
+import nanoid from "nanoid";
 
 import { BoxProps } from "./Box.type";
 import { FormContext, Layout } from "./Form";
@@ -37,15 +37,18 @@ export const FormGroup = React.forwardRef<HTMLDivElement, FormGroupProps>(
             required = false,
             ...rest
         } = props;
+
+        const groupId = React.useMemo(() => id || nanoid(), [id]);
+
         const { disabled: formDisabled, layout: formLayout } = React.useContext(FormContext);
         const layout = propLayout || formLayout;
         const formGroupContext = React.useMemo(
             () => ({
                 disabled: formDisabled || disabled,
-                id: id || uuidv4(),
+                id: groupId,
                 required,
             }),
-            [disabled, formDisabled, id, required]
+            [disabled, formDisabled, groupId, required]
         );
         return React.createElement(
             as,
