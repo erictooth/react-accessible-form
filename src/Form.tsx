@@ -3,6 +3,7 @@ import classNames from "classnames";
 
 import { BoxProps } from "./Box.type";
 import { FormControl } from "./FormControl";
+import { FormElement } from "./FormElement";
 import { FormGroup } from "./FormGroup";
 import { FormLabel } from "./FormLabel";
 
@@ -42,6 +43,7 @@ FormComponent.displayName = "Form";
 
 const Form = Object.assign(
     {
+        Element: FormElement,
         Group: FormGroup,
         Label: FormLabel,
         Control: FormControl,

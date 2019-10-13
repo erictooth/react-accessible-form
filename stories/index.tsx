@@ -69,9 +69,7 @@ stories.add("custom controls", () => {
             <Form.Group>
                 <Form.Label>Visibility</Form.Label>
                 <Form.Control
-                    as={({ className, ...props }) => (
-                        <Select {...props} />
-                    )}
+                    as={({ className, ...props }) => <Select {...props} />}
                     options={[
                         { value: "private", label: "Private" },
                         { value: "public", label: "Public" },
@@ -80,9 +78,40 @@ stories.add("custom controls", () => {
             </Form.Group>
             <Form.Group layout="aligned">
                 <Form.Control
-                    as={({ className, ...props }) => (
-                        <Switch {...props} />
-                    )}
+                    as={({ className, ...props }) => <Switch {...props} />}
+                    shape="fill"
+                />
+                <Form.Label>Archived</Form.Label>
+            </Form.Group>
+        </Form>
+    );
+});
+
+stories.add("Form.Element", () => {
+    return (
+        <Form layout={layoutKnob()} onSubmit={(e) => e.preventDefault()}>
+            <Form.Element label="Name" />
+
+            <Form.Element label="Age" type="number" min="0" />
+
+            <Form.Element label="Bio" as="textarea" />
+
+            <Form.Element label="Email" type="email">
+                <small>You may occasionally receive marketing emails from us.</small>
+            </Form.Element>
+
+            <Form.Element
+                label="Visibility"
+                as={({ className, ...props }) => <Select {...props} />}
+                options={[
+                    { value: "private", label: "Private" },
+                    { value: "public", label: "Public" },
+                ]}
+            />
+
+            <Form.Group layout="aligned">
+                <Form.Control
+                    as={({ className, ...props }) => <Switch {...props} />}
                     shape="fill"
                 />
                 <Form.Label>Archived</Form.Label>
