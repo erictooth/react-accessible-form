@@ -1,15 +1,14 @@
-//@flow
 import * as React from "react";
 import classNames from "classnames";
 
-import { FormGroupContext } from "./FormGroupContext.js";
+import { FormGroupContext } from "./FormGroupContext";
 
 type Props = {
-    as?: React.ElementType,
-    className?: string,
-};
+    as?: React.ElementType;
+} & React.HTMLAttributes<HTMLElement> &
+    Record<string, any>;
 
-export const FormControl = React.forwardRef<Props, HTMLElement>((props: Props, ref) => {
+export const FormControl = React.forwardRef<HTMLElement, Props>((props: Props, ref) => {
     const { as = "input", className, ...rest } = props;
 
     const groupContext = React.useContext(FormGroupContext);
@@ -26,7 +25,6 @@ export const FormControl = React.forwardRef<Props, HTMLElement>((props: Props, r
         id,
         required,
     };
-    //$FlowFixMe
     return React.createElement(as, { ...inputProps, ...rest, ref });
 });
 

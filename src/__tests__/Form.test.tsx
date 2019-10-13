@@ -1,10 +1,10 @@
 import * as React from "react";
 import { render } from "@testing-library/react";
 
-import Form from "../index.js";
+import Form from "../index";
 
 const getTestComponent = () => (
-    <Form layout="aligned" onSubmit={(e) => e.preventDefault()}>
+    <Form layout="aligned" onSubmit={(e: any) => e.preventDefault()}>
         <Form.Group id="1">
             <Form.Label>First Name</Form.Label>
             <Form.Control />
@@ -54,6 +54,8 @@ describe("Form", () => {
     });
     it("applies layout classname", () => {
         const LAYOUT = "ABC";
+        
+        //@ts-ignore
         const { container } = render(<Form layout={LAYOUT} />);
 
         expect(container.querySelector(`.form--${LAYOUT}`)).not.toBe(null);

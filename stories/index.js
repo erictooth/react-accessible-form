@@ -3,7 +3,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { withKnobs, select } from "@storybook/addon-knobs";
 
-import Form from "../src/index.js";
+import Form from "../src/index";
 
 import Select from "react-select";
 import { Switch } from "pretty-checkbox-react";

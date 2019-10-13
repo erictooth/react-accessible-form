@@ -3,20 +3,20 @@ import * as React from "react";
 import classNames from "classnames";
 import uuidv4 from "uuid/v4";
 
-import { FormContext, type Layout } from "./Form.js";
-import { FormGroupContext } from "./FormGroupContext.js";
+import { FormContext, Layout } from "./Form";
+import { FormGroupContext } from "./FormGroupContext";
 
 type Props = {
-    as?: React.ElementType,
-    children?: React.Node,
-    className?: string,
-    disabled?: boolean,
-    layout?: Layout,
-    id?: string,
-    required?: boolean,
+    as?: React.ElementType;
+    children?: React.ReactNode[];
+    className?: string;
+    disabled?: boolean;
+    layout?: Layout;
+    id?: string;
+    required?: boolean;
 };
 
-const renderSections = (children) => {
+const renderSections = (children: React.ReactNode) => {
     const childrenArr = React.Children.toArray(children);
     if (childrenArr.length === 0) {
         return null;
@@ -29,7 +29,7 @@ const renderSections = (children) => {
     );
 };
 
-export const FormGroup = React.forwardRef<Props, HTMLElement>((props: Props, ref) => {
+export const FormGroup = React.forwardRef<HTMLElement, Props>((props: Props, ref) => {
     const {
         as = "div",
         children,

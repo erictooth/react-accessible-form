@@ -17,17 +17,17 @@
         "url": "https://github.com/erictooth/react-accessible-form/issues"
     },
     "scripts": {
-        "prebuild": "npm-run-all --parallel lint test build:flow",
+        "prebuild": "npm-run-all --parallel lint test",
         "build": "npm run build:pika",
-        "build:flow": "flow check && flow-coverage-report -i src/*.js -t html",
         "build:pika": "pack build",
-        "copy:flow": "flow-copy-source src pkg/dist-src",
-        "lint": "eslint src/",
-        "prepublishOnly": "npm-run-all build copy:flow",
+        "lint": "eslint src --ext=tsx,ts",
+        "prepublishOnly": "npm-run-all build",
         "storybook": "start-storybook",
         "test": "jest"
     },
     "dependencies": {
+        "@types/classnames": "^2.2.9",
+        "@types/uuid": "^3.4.5",
         "classnames": "^2.2.6",
         "uuid": "^3.3.2"
     },
@@ -35,10 +35,13 @@
         "react": "^16.8.0"
     },
     "eslintConfig": {
+        "env": {
+            "browser": true
+        },
         "extends": [
             "@erictooth/eslint-config",
             "@erictooth/eslint-config/react",
-            "@erictooth/eslint-config/flowtype"
+            "@erictooth/eslint-config/typescript"
         ]
     },
     "eslintIgnore": [
@@ -48,7 +51,7 @@
     "@pika/pack": {
         "pipeline": [
             [
-                "@pika/plugin-standard-pkg",
+                "@pika/plugin-ts-standard-pkg",
                 {
                     "exclude": [
                         "__tests__/**/*"
@@ -70,37 +73,35 @@
         ]
     },
     "devDependencies": {
-        "@babel/core": "^7.4.5",
-        "@babel/preset-env": "^7.4.5",
-        "@babel/preset-flow": "^7.0.0",
-        "@babel/preset-react": "^7.0.0",
         "@erictooth/eslint-config": "^1.0.1",
         "@erictooth/prettier-config": "^2.0.0",
-        "@pika/pack": "^0.4.0",
-        "@pika/plugin-build-umd": "^0.4.0",
-        "@pika/plugin-build-web": "^0.4.0",
-        "@pika/plugin-copy-assets": "^0.4.0",
-        "@pika/plugin-standard-pkg": "^0.4.0",
+        "@pika/pack": "^0.5.0",
+        "@pika/plugin-build-umd": "^0.6.1",
+        "@pika/plugin-build-web": "^0.6.1",
+        "@pika/plugin-copy-assets": "^0.6.1",
+        "@pika/plugin-ts-standard-pkg": "^0.6.1",
         "@storybook/addon-a11y": "^5.1.9",
         "@storybook/addon-knobs": "^5.1.9",
         "@storybook/addon-storysource": "^5.1.9",
         "@storybook/react": "^5.1.9",
-        "@testing-library/react": "^8.0.4",
-        "babel-jest": "^24.8.0",
-        "babel-loader": "^8.0.6",
+        "@testing-library/react": "^9.3.0",
+        "@types/jest": "^24.0.18",
+        "@types/storybook__react": "^4.0.2",
+        "@typescript-eslint/parser": "^2.3.3",
+        "awesome-typescript-loader": "^5.2.1",
         "eslint": "^6.0.1",
-        "flow-bin": "^0.102.0",
-        "flow-copy-source": "^2.0.7",
-        "flow-coverage-report": "^0.6.1",
         "jest": "^24.8.0",
         "jest-dom": "^3.5.0",
         "npm-run-all": "^4.1.5",
         "prettier": "^1.18.2",
         "pretty-checkbox": "^3.0.3",
         "pretty-checkbox-react": "^1.1.0",
-        "react": "^16.8.0",
-        "react-dom": "^16.8.0",
-        "react-select": "^3.0.4"
+        "react": "^16.10.2",
+        "react-docgen-typescript-loader": "^3.3.0",
+        "react-dom": "^16.10.2",
+        "react-select": "^3.0.4",
+        "ts-jest": "^24.1.0",
+        "typescript": "^3.6.4"
     },
     "jest": {
         "collectCoverage": true,
@@ -108,8 +109,6 @@
             "html",
             "json-summary"
         ],
-        "setupFilesAfterEnv": [
-            "@testing-library/react/cleanup-after-each"
-        ]
+        "preset": "ts-jest"
     }
 }

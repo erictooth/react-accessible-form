@@ -1,9 +1,9 @@
 import * as React from "react";
 import { render } from "@testing-library/react";
 
-import { FormGroup } from "../FormGroup.js";
+import { FormGroup } from "../FormGroup";
 
-import { Form } from "../Form.js";
+import { Form } from "../Form";
 
 describe("FormGroup", () => {
     it("splits children into two sections when layout is aligned", () => {
@@ -37,7 +37,10 @@ describe("FormGroup", () => {
     });
     it("overrides layout from FormContext with layout prop if specified", () => {
         const { container } = render(
+            //@ts-ignore
             <Form layout="ABC">
+                {/*
+                    // @ts-ignore */}
                 <FormGroup layout="XYZ" />
             </Form>
         );
@@ -46,6 +49,7 @@ describe("FormGroup", () => {
     });
     it("inherits layout from FormContext when layout prop is not specified", () => {
         const { container } = render(
+            //@ts-ignore
             <Form layout="ABC">
                 <FormGroup />
             </Form>

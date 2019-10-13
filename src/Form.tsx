@@ -1,18 +1,19 @@
-//@flow
 import * as React from "react";
 import classNames from "classnames";
 
+import { FormControl } from "./FormControl";
+import { FormGroup } from "./FormGroup";
+import { FormLabel } from "./FormLabel";
+
 type Props = {
-    as?: React.ElementType,
-    children: React.Node,
-    className?: string,
-    layout?: Layout,
-    disabled?: boolean,
-};
+    as?: React.ElementType;
+    layout?: Layout;
+    disabled?: boolean;
+} & React.HTMLAttributes<HTMLFormElement>;
 
 export type Layout = "stacked" | "aligned";
 
-export const Form = React.forwardRef<Props, HTMLFormElement>((props: Props, ref) => {
+const FormComponent = React.forwardRef<HTMLFormElement, Props>((props: Props, ref) => {
     const {
         as = "form",
         className,
@@ -28,7 +29,6 @@ export const Form = React.forwardRef<Props, HTMLFormElement>((props: Props, ref)
         }),
         [disabled, layout]
     );
-    //$FlowFixMe
     return React.createElement(
         as,
         { className: classNames(className, `form--${layout}`), ref, ...rest },
@@ -36,14 +36,25 @@ export const Form = React.forwardRef<Props, HTMLFormElement>((props: Props, ref)
     );
 });
 
-Form.displayName = "Form";
+FormComponent.displayName = "Form";
 
-export type FormContextValue = {|
-    disabled: boolean,
-    layout: Layout,
-|};
+const Form = Object.assign(
+    {
+        Group: FormGroup,
+        Label: FormLabel,
+        Control: FormControl,
+    },
+    FormComponent
+);
+
+export type FormContextValue = {
+    disabled: boolean;
+    layout: Layout;
+};
 
 export const FormContext = React.createContext<FormContextValue>({
     disabled: false,
     layout: "stacked",
 });
+
+export { Form };
