@@ -1,4 +1,3 @@
-//@flow
 import * as React from "react";
 import classNames from "classnames";
 import uuidv4 from "uuid/v4";
@@ -6,15 +5,12 @@ import uuidv4 from "uuid/v4";
 import { FormContext, Layout } from "./Form";
 import { FormGroupContext } from "./FormGroupContext";
 
-type Props = {
+export type FormGroupProps = {
     as?: React.ElementType;
-    children?: React.ReactNode[];
-    className?: string;
     disabled?: boolean;
     layout?: Layout;
-    id?: string;
     required?: boolean;
-};
+} & React.HTMLAttributes<HTMLDivElement>;
 
 const renderSections = (children: React.ReactNode): React.ReactNode => {
     const childrenArr = React.Children.toArray(children);
@@ -29,39 +25,40 @@ const renderSections = (children: React.ReactNode): React.ReactNode => {
     );
 };
 
-export const FormGroup = React.forwardRef<HTMLElement, Props>((props: Props, ref) => {
-    const {
-        as = "div",
-        children,
-        className,
-        disabled = false,
-        id,
-        layout: propLayout,
-        required = false,
-        ...rest
-    } = props;
-    const { disabled: formDisabled, layout: formLayout } = React.useContext(FormContext);
-    const layout = propLayout || formLayout;
-    const formGroupContext = React.useMemo(
-        () => ({
-            disabled: formDisabled || disabled,
-            id: id || uuidv4(),
-            required,
-        }),
-        [disabled, formDisabled, id, required]
-    );
-    //$FlowFixMe
-    return React.createElement(
-        as,
-        {
-            className: classNames("form__group", `form__group--${layout}`, className),
-            ref,
-            ...rest,
-        },
-        <FormGroupContext.Provider value={formGroupContext}>
-            {layout === "aligned" ? renderSections(children) : children}
-        </FormGroupContext.Provider>
-    );
-});
+export const FormGroup = React.forwardRef<HTMLDivElement, FormGroupProps>(
+    (props: FormGroupProps, ref) => {
+        const {
+            as = "div",
+            children,
+            className,
+            disabled = false,
+            id,
+            layout: propLayout,
+            required = false,
+            ...rest
+        } = props;
+        const { disabled: formDisabled, layout: formLayout } = React.useContext(FormContext);
+        const layout = propLayout || formLayout;
+        const formGroupContext = React.useMemo(
+            () => ({
+                disabled: formDisabled || disabled,
+                id: id || uuidv4(),
+                required,
+            }),
+            [disabled, formDisabled, id, required]
+        );
+        return React.createElement(
+            as,
+            {
+                className: classNames("form__group", `form__group--${layout}`, className),
+                ref,
+                ...rest,
+            },
+            <FormGroupContext.Provider value={formGroupContext}>
+                {layout === "aligned" ? renderSections(children) : children}
+            </FormGroupContext.Provider>
+        );
+    }
+);
 
 FormGroup.displayName = "Form.Group";
