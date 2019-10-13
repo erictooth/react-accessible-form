@@ -2,11 +2,11 @@ import * as React from "react";
 import classNames from "classnames";
 import uuidv4 from "uuid/v4";
 
+import { BoxProps } from "./Box.type";
 import { FormContext, Layout } from "./Form";
 import { FormGroupContext } from "./FormGroupContext";
 
-export type FormGroupProps = {
-    as?: React.ElementType;
+export type FormGroupProps = BoxProps & {
     disabled?: boolean;
     layout?: Layout;
     required?: boolean;
