@@ -27,8 +27,8 @@ export const FormLabel = React.forwardRef<HTMLElement, FormLabelProps>(
                 className,
                 {
                     "form__label--required": required,
+                    "form__label--disabled": disabled,
                 },
-                { "form__label--disabled": disabled }
             ),
             ...rest,
             ref,
