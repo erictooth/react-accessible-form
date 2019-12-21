@@ -2,7 +2,7 @@ import * as React from "react";
 import classNames from "classnames";
 
 import { BoxProps } from "./Box.type";
-import { FormGroupContext } from "./FormGroupContext";
+import { useFormContext } from "./useFormContext";
 
 export type FormLabelProps = BoxProps<{ htmlFor: string; className: string }> & {
     children: React.ReactNode;
@@ -12,13 +12,8 @@ export type FormLabelProps = BoxProps<{ htmlFor: string; className: string }> & 
 export const FormLabel = React.forwardRef<HTMLElement, FormLabelProps>(
     (props: FormLabelProps, ref) => {
         const { as = "label", className, ...rest } = props;
-        const groupContext = React.useContext(FormGroupContext);
 
-        if (!groupContext) {
-            throw new Error("FormLabel must be used inside of a FormGroup");
-        }
-
-        const { disabled, id, required } = groupContext;
+        const { disabled, id, required } = useFormContext("FormLabel");
 
         return React.createElement(as, {
             htmlFor: id,

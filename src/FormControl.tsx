@@ -2,7 +2,7 @@ import * as React from "react";
 import classNames from "classnames";
 
 import { BoxProps } from "./Box.type";
-import { FormGroupContext } from "./FormGroupContext";
+import { useFormContext } from "./useFormContext";
 
 export type FormControlProps = React.HTMLAttributes<any> &
     Record<string, unknown> &
@@ -19,13 +19,7 @@ export const FormControl: React.RefForwardingComponent<
 > = React.forwardRef<HTMLElement, FormControlProps>((props: FormControlProps, ref) => {
     const { as = "input", className, ...rest } = props;
 
-    const groupContext = React.useContext(FormGroupContext);
-
-    if (!groupContext) {
-        throw new Error("FormControl must be used inside of a FormGroup");
-    }
-
-    const { disabled, id, required } = groupContext;
+    const { disabled, id, required } = useFormContext("FormControl");
 
     return React.createElement(as, {
         className: classNames("form__control", className),
