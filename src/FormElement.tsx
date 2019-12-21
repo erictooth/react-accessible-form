@@ -9,33 +9,42 @@ type Props = Omit<FormGroupProps, "as"> &
         label: FormLabelProps["children"];
     };
 
-const FormElement: React.RefForwardingComponent<HTMLDivElement, Props> = React.forwardRef<
-    HTMLDivElement,
-    Props
->((props: Props, ref) => {
-    // Group props
-    const { className, children, layout, disabled, required, ...afterGroup } = props;
+export const createElementComponent: (FormElems: {
+    Control: typeof FormControl;
+    Group: typeof FormGroup;
+    Label: typeof FormLabel;
+}) => React.RefForwardingComponent<HTMLDivElement, Props> = ({ Control, Group, Label }) => {
+    const FormElement = React.forwardRef<HTMLDivElement, Props>((props: Props, ref) => {
+        // Group props
+        const { className, children, layout, disabled, required, ...afterGroup } = props;
 
-    // Label props
-    const { label, ...afterLabel } = afterGroup;
+        // Label props
+        const { label, ...afterLabel } = afterGroup;
 
-    // Control props
-    const { as, ...rest } = afterLabel;
+        // Control props
+        const { as, ...rest } = afterLabel;
 
-    return (
-        <FormGroup
-            ref={ref}
-            className={className}
-            disabled={disabled}
-            layout={layout}
-            required={required}>
-            <FormLabel>{label}</FormLabel>
-            <FormControl as={as} {...rest}></FormControl>
-            {children}
-        </FormGroup>
-    );
+        return (
+            <Group
+                ref={ref}
+                className={className}
+                disabled={disabled}
+                layout={layout}
+                required={required}>
+                <Label>{label}</Label>
+                <Control as={as} {...rest}></Control>
+                {children}
+            </Group>
+        );
+    });
+
+    FormElement.displayName = "Form.Element";
+
+    return FormElement;
+};
+
+export const FormElement = createElementComponent({
+    Control: FormControl,
+    Group: FormGroup,
+    Label: FormLabel,
 });
-
-FormElement.displayName = "Form.Element";
-
-export { FormElement };
