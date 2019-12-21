@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { FormGroupContext, FormGroupContextValue } from "./FormGroupContext";
 
-export const useFormContext = (elemName = "useFormContext"): FormGroupContextValue => {
+export const useGroupContext = (elemName = "useGroupContext"): FormGroupContextValue => {
     const groupContext = useContext(FormGroupContext);
 
     if (!groupContext) {

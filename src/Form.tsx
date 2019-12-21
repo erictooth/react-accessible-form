@@ -6,7 +6,7 @@ import { FormControl } from "./FormControl";
 import { FormElement, createElementComponent } from "./FormElement";
 import { FormGroup } from "./FormGroup";
 import { FormLabel } from "./FormLabel";
-import { useFormContext } from "./useFormContext";
+import { useGroupContext } from "./useGroupContext";
 
 type FormProps = {
     layout?: Layout;
@@ -49,7 +49,7 @@ const Form = Object.assign(
         Label: FormLabel,
         Control: FormControl,
         createElementComponent,
-        useFormContext,
+        useGroupContext,
     },
     FormComponent
 );

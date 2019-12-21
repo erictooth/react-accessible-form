@@ -2,7 +2,7 @@ import * as React from "react";
 import classNames from "classnames";
 
 import { BoxProps } from "./Box.type";
-import { useFormContext } from "./useFormContext";
+import { useGroupContext } from "./useGroupContext";
 
 export type FormLabelProps = BoxProps<{ htmlFor: string; className: string }> & {
     children: React.ReactNode;
@@ -13,7 +13,7 @@ export const FormLabel = React.forwardRef<HTMLElement, FormLabelProps>(
     (props: FormLabelProps, ref) => {
         const { as = "label", className, ...rest } = props;
 
-        const { disabled, id, required } = useFormContext("FormLabel");
+        const { disabled, id, required } = useGroupContext("FormLabel");
 
         return React.createElement(as, {
             htmlFor: id,
