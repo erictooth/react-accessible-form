@@ -1,17 +1,12 @@
-.form__group--aligned {
-    display: table-row;
+.form--aligned {
+    display: grid;
+    grid-template-columns: max-content auto;
 }
-.form__group__section {
-    display: table-cell;
-    vertical-align: top;
+.form--aligned .form__group {
+    display: contents;
 }
-
 .form__label,
 .form__control,
 .form__text {
     display: block;
-}
-
-.form--aligned {
-    display: table;
 }

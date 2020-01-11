@@ -19,8 +19,8 @@ const renderSections = (children: React.ReactNode): React.ReactNode => {
     }
     return (
         <>
-            <div className="form__group__section">{childrenArr[0]}</div>
-            <div className="form__group__section">{childrenArr.slice(1)}</div>
+            <div className="form__section">{childrenArr[0]}</div>
+            <div className="form__section">{childrenArr.slice(1)}</div>
         </>
     );
 };
