@@ -14,14 +14,14 @@ describe("FormGroup", () => {
                 <span />
             </FormGroup>
         );
-        const sections = container.querySelectorAll(".form__group__section");
+        const sections = container.querySelectorAll(".form__section");
         expect(sections).toHaveLength(2);
         expect(sections[0].querySelectorAll("span")).toHaveLength(1);
         expect(sections[1].querySelectorAll("span")).toHaveLength(2);
     });
     it("renders null instead of two empty sections when children is empty", () => {
         const { container } = render(<FormGroup layout="aligned"></FormGroup>);
-        const sections = container.querySelectorAll(".form__group__section");
+        const sections = container.querySelectorAll(".form__section");
         expect(sections).toHaveLength(0);
     });
     it("doesn't render sections when layout is not aligned", () => {
@@ -32,7 +32,7 @@ describe("FormGroup", () => {
                 <span />
             </FormGroup>
         );
-        const sections = container.querySelectorAll(".form__group__section");
+        const sections = container.querySelectorAll(".form__section");
         expect(sections).toHaveLength(0);
     });
     it("overrides layout from FormContext with layout prop if specified", () => {
