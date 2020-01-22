@@ -8,7 +8,7 @@ import { FormGroup } from "./FormGroup";
 import { FormLabel } from "./FormLabel";
 import { useGroupContext } from "./useGroupContext";
 
-type FormProps = {
+export type FormProps = {
     layout?: Layout;
     disabled?: boolean;
 } & React.HTMLAttributes<HTMLFormElement>;
