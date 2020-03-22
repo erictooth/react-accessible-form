@@ -2,6 +2,9 @@
 
 React Accessible Form handles makes layout and accessibility easy when writing forms.
 
+
+Try the other libaries in the series! [React Stateful Tabs](https://github.com/erictooth/react-stateful-tabs), [React Smart Promise](https://github.com/erictooth/react-smart-promise), [React Use Pagination](https://github.com/erictooth/react-use-pagination)
+
 ## Example
 
 ```jsx
