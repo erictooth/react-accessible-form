@@ -1,6 +1,6 @@
 import * as React from "react";
 import classNames from "classnames";
-import nanoid from "nanoid";
+import { nanoid } from "nanoid/non-secure";
 
 import { BoxProps } from "./Box.type";
 import { FormContext, Layout } from "./Form";
