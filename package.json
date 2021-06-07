@@ -33,7 +33,7 @@
         "nanoid": "^3.0.0"
     },
     "peerDependencies": {
-        "react": "^16.8.0"
+        "react": "^16.8.0 || ^17.0.0"
     },
     "eslintConfig": {
         "env": {
