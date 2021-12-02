@@ -7,6 +7,8 @@ import { FormLabel, FormLabelProps } from "./FormLabel";
 export type FormElementProps = Omit<FormGroupProps, "as"> &
     FormControlProps & {
         label: FormLabelProps["children"];
+        labelProps?: Record<string, any>;
+        controlProps?: Record<string, any>;
     };
 
 export const createElementComponent: (FormElems: {
@@ -24,10 +26,10 @@ export const createElementComponent: (FormElems: {
             const { className, children, layout, disabled, required, ...afterGroup } = props;
 
             // Label props
-            const { label, ...afterLabel } = afterGroup;
+            const { label, labelProps = {}, ...afterLabel } = afterGroup;
 
             // Control props
-            const { as, ...rest } = afterLabel;
+            const { as, controlProps = {}, ...rest } = afterLabel;
 
             return (
                 <Group
@@ -36,8 +38,8 @@ export const createElementComponent: (FormElems: {
                     disabled={disabled}
                     layout={layout}
                     required={required}>
-                    <Label>{label}</Label>
-                    <Control as={as} {...rest}></Control>
+                    <Label {...labelProps}>{label}</Label>
+                    <Control as={as} {...rest} {...controlProps}></Control>
                     {children}
                 </Group>
             );
