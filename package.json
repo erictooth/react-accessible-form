@@ -1,8 +1,8 @@
 {
     "name": "react-accessible-form",
-    "version": "2.2.0",
+    "version": "2.2.1",
     "description": "React Accessible Form handles makes layout and accessibility easy when writing forms.",
-    "author": "Eric Mantooth",
+    "author": "erictooth",
     "license": "MIT",
     "keywords": [
         "react",
